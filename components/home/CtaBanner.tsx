@@ -16,7 +16,7 @@ export default function CtaBanner({ waNumber }: Props) {
         {/* Subtle glow */}
         <div
           className="absolute -top-10 -right-10 w-[300px] h-[300px] pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(212,134,10,0.15) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(77,184,255,0.15) 0%, transparent 70%)' }}
         />
 
         {/* Content */}

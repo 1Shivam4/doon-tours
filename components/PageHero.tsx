@@ -32,7 +32,7 @@ export default function PageHero({ badge, title, subtitle, breadcrumb, image }: 
           <div
             className="absolute inset-0 -z-10"
             style={{
-              background: 'linear-gradient(to bottom right, rgba(28,42,29,0.80) 0%, rgba(44,62,45,0.60) 100%)',
+              background: 'linear-gradient(to bottom right, rgba(7,21,37,0.82) 0%, rgba(13,33,69,0.65) 100%)',
             }}
           />
         </>
@@ -44,8 +44,8 @@ export default function PageHero({ badge, title, subtitle, breadcrumb, image }: 
             className="absolute inset-0 pointer-events-none"
             style={{
               backgroundImage: `
-                radial-gradient(ellipse at 15% 60%, rgba(212,134,10,0.13) 0%, transparent 55%),
-                radial-gradient(ellipse at 90% 10%, rgba(74,124,142,0.10) 0%, transparent 45%)
+                radial-gradient(ellipse at 15% 60%, rgba(77,184,255,0.13) 0%, transparent 55%),
+                radial-gradient(ellipse at 90% 10%, rgba(44,123,240,0.12) 0%, transparent 45%)
               `,
             }}
           />
@@ -101,7 +101,7 @@ export default function PageHero({ badge, title, subtitle, breadcrumb, image }: 
       {image && (
         <div
           className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
-          style={{ background: 'linear-gradient(to bottom, transparent, rgba(248,247,244,0.08))' }}
+          style={{ background: 'linear-gradient(to bottom, transparent, rgba(240,245,255,0.08))' }}
         />
       )}
     </div>

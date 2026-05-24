@@ -9,7 +9,7 @@ const TYPE_BADGE: Record<string, string> = {
   'Other':            'bg-stone',
 }
 
-const CAR_PLACEHOLDER = 'linear-gradient(135deg, #c9d4c0 0%, #a8b89e 100%)'
+const CAR_PLACEHOLDER = 'linear-gradient(135deg, #c4d4e8 0%, #9ab8d4 100%)'
 
 interface Props {
   car: CarData
@@ -51,7 +51,7 @@ export default function CarCard({ car, waNumber }: Props) {
         {/* Price badge */}
         <span
           className="absolute bottom-3 right-3 text-white text-[13px] font-semibold px-[14px] py-[6px] rounded-md"
-          style={{ background: 'rgba(61,43,31,0.85)', backdropFilter: 'blur(4px)' }}
+          style={{ background: 'rgba(13,30,56,0.85)', backdropFilter: 'blur(4px)' }}
         >
           ₹{car.pricePerDay.toLocaleString('en-IN')}{' '}
           <span className="text-[10px] font-normal opacity-75">/ day</span>
@@ -100,7 +100,7 @@ export default function CarCard({ car, waNumber }: Props) {
                   <span
                     key={lang}
                     className="text-[10px] font-medium text-river px-2 py-[2px] rounded-full border"
-                    style={{ background: 'rgba(74,124,142,0.1)', borderColor: 'rgba(74,124,142,0.2)' }}
+                    style={{ background: 'rgba(44,123,240,0.1)', borderColor: 'rgba(44,123,240,0.2)' }}
                   >
                     {lang}
                   </span>

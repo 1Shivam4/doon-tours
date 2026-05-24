@@ -13,7 +13,7 @@ interface CarFormData {
 const TYPES = ['SUV', 'Sedan', 'Tempo Traveller', 'Other']
 const FUELS = ['Diesel', 'Petrol', 'CNG', 'Electric']
 
-const inputClass  = 'w-full text-sm text-bark bg-white border border-border rounded-lg px-4 py-[10px] outline-none focus:border-forest focus:shadow-[0_0_0_3px_rgba(44,62,45,0.1)] transition-all'
+const inputClass  = 'w-full text-sm text-bark bg-white border border-border rounded-lg px-4 py-[10px] outline-none focus:border-forest focus:shadow-[0_0_0_3px_rgba(13,33,69,0.12)] transition-all'
 const labelClass  = 'block text-[12px] font-semibold text-stone uppercase tracking-[0.04em] mb-[6px]'
 const selectClass = `${inputClass} cursor-pointer`
 

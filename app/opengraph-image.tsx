@@ -15,17 +15,17 @@ export default function Image() {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          background: '#2C3E2D',
+          background: '#071525',
           padding: '80px 96px',
           fontFamily: 'Georgia, serif',
         }}
       >
         {/* Accent bar */}
-        <div style={{ width: 64, height: 4, background: '#D4860A', marginBottom: 40, borderRadius: 2 }} />
+        <div style={{ width: 64, height: 4, background: '#4db8ff', marginBottom: 40, borderRadius: 2 }} />
 
         {/* Business name */}
         <div style={{ display: 'flex', fontSize: 72, fontWeight: 700, color: '#FFFFFF', lineHeight: 1.05, marginBottom: 20 }}>
-          <span>DevBhumi</span><span style={{ color: '#D4860A' }}>Travels</span>
+          <span>DevBhumi</span><span style={{ color: '#4db8ff' }}>Travels</span>
         </div>
 
         {/* Tagline */}

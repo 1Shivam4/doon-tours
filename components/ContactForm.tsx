@@ -13,7 +13,7 @@ interface FormValues {
 }
 
 const inputClass =
-  'w-full font-sans text-sm text-bark bg-white border border-border rounded-lg px-[14px] py-[11px] outline-none transition-all focus:border-forest focus:shadow-[0_0_0_3px_rgba(44,62,45,0.1)] placeholder:text-[#b5b0ab]'
+  'w-full font-sans text-sm text-bark bg-white border border-border rounded-lg px-[14px] py-[11px] outline-none transition-all focus:border-forest focus:shadow-[0_0_0_3px_rgba(13,33,69,0.12)] placeholder:text-[#b5b0ab]'
 
 const labelClass = 'block text-[12px] font-semibold text-stone uppercase tracking-[0.04em] mb-[6px]'
 

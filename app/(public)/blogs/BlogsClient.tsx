@@ -24,7 +24,7 @@ const FALLBACK_GRADIENTS: Record<string, string> = {
   'Mussoorie':         'linear-gradient(135deg,#5a3a5a,#8a5a8a)',
 }
 
-const DEFAULT_GRADIENT = 'linear-gradient(135deg,#2C3E2D,#4A7C8E)'
+const DEFAULT_GRADIENT = 'linear-gradient(135deg,#071525,#2c7bf0)'
 
 export default function BlogsClient({ initialBlogs }: { initialBlogs: Blog[] }) {
   const [search, setSearch] = useState('')
@@ -75,7 +75,7 @@ export default function BlogsClient({ initialBlogs }: { initialBlogs: Blog[] }) 
             placeholder="Search wiki articles..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full text-sm text-bark bg-white border border-border rounded-full pl-5 pr-10 py-2.5 outline-none focus:border-forest focus:shadow-[0_0_0_3px_rgba(44,62,45,0.06)] transition-all"
+            className="w-full text-sm text-bark bg-white border border-border rounded-full pl-5 pr-10 py-2.5 outline-none focus:border-forest focus:shadow-[0_0_0_3px_rgba(13,33,69,0.08)] transition-all"
           />
           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-stone text-sm pointer-events-none">🔍</span>
         </div>

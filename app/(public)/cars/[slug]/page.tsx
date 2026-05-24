@@ -121,7 +121,7 @@ export default async function CarDetailPage({ params }: { params: Params }) {
             {/* Image */}
             <div
               className="relative w-full rounded-xl overflow-hidden mb-8"
-              style={{ height: 340, background: 'linear-gradient(135deg,#c9d4c0,#a8b89e)' }}
+              style={{ height: 340, background: 'linear-gradient(135deg,#c4d4e8,#9ab8d4)' }}
             >
               {car.images[0] ? (
                 <Image src={car.images[0]} alt={car.name} fill className="object-cover" />
@@ -191,7 +191,7 @@ export default async function CarDetailPage({ params }: { params: Params }) {
                         <span
                           key={lang}
                           className="text-[11px] font-medium text-river px-3 py-[3px] rounded-full border"
-                          style={{ background: 'rgba(74,124,142,0.1)', borderColor: 'rgba(74,124,142,0.2)' }}
+                          style={{ background: 'rgba(44,123,240,0.1)', borderColor: 'rgba(44,123,240,0.2)' }}
                         >
                           {lang}
                         </span>

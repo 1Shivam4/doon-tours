@@ -60,7 +60,7 @@ export default function PartnersSection({ waNumber }: Props) {
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-forest hover:bg-forest/90 text-white text-sm font-semibold px-7 py-[14px] rounded-lg transition-all hover:-translate-y-px shadow-[0_4px_20px_rgba(44,62,45,0.35)]"
+              className="inline-flex items-center gap-2 bg-forest hover:bg-forest/90 text-white text-sm font-semibold px-7 py-[14px] rounded-lg transition-all hover:-translate-y-px shadow-[0_4px_20px_rgba(7,21,37,0.35)]"
             >
               Become a Partner →
             </a>

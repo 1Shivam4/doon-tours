@@ -10,7 +10,7 @@ const FALLBACK_GRADIENTS: Record<string, string> = {
   'Mussoorie':         'linear-gradient(135deg,#5a3a5a,#8a5a8a)',
 }
 
-const DEFAULT_GRADIENT = 'linear-gradient(135deg,#2C3E2D,#4A7C8E)'
+const DEFAULT_GRADIENT = 'linear-gradient(135deg,#071525,#2c7bf0)'
 
 interface Props {
   destinations: any[]
@@ -66,7 +66,7 @@ export default function DestinationsSection({ destinations }: Props) {
               {/* Overlay */}
               <div
                 className="absolute inset-0"
-                style={{ background: 'linear-gradient(to top, rgba(44,62,45,0.88) 0%, rgba(44,62,45,0.1) 60%)' }}
+                style={{ background: 'linear-gradient(to top, rgba(7,21,37,0.88) 0%, rgba(7,21,37,0.1) 60%)' }}
               />
 
               {/* Info */}

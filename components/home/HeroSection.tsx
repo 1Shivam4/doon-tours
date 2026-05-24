@@ -30,9 +30,9 @@ export default function HeroSection({ waNumber }: Props) {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
-            radial-gradient(ellipse at 10% 70%, rgba(212,134,10,0.18) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 10%, rgba(74,124,142,0.14) 0%, transparent 45%),
-            radial-gradient(ellipse at 60% 90%, rgba(44,62,45,0.8) 0%, transparent 40%)
+            radial-gradient(ellipse at 10% 70%, rgba(77,184,255,0.18) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 10%, rgba(24,117,240,0.20) 0%, transparent 45%),
+            radial-gradient(ellipse at 60% 90%, rgba(7,21,37,0.8) 0%, transparent 40%)
           `,
         }}
       />
@@ -66,7 +66,7 @@ export default function HeroSection({ waNumber }: Props) {
               <span
                 className="relative"
                 style={{
-                  backgroundImage: 'linear-gradient(135deg, #F5A623 0%, #D4860A 100%)',
+                  backgroundImage: 'linear-gradient(135deg, #7bcfff 0%, #4db8ff 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -85,7 +85,7 @@ export default function HeroSection({ waNumber }: Props) {
             <div className="flex flex-wrap gap-3 mb-8">
               <Link
                 href="/packages"
-                className="inline-flex items-center gap-2 bg-saffron hover:bg-saffron-light text-white text-sm font-semibold px-7 py-[14px] rounded-lg transition-all hover:-translate-y-px shadow-[0_4px_20px_rgba(212,134,10,0.35)]"
+                className="inline-flex items-center gap-2 bg-saffron hover:bg-saffron-light text-white text-sm font-semibold px-7 py-[14px] rounded-lg transition-all hover:-translate-y-px shadow-[0_4px_20px_rgba(77,184,255,0.35)]"
               >
                 Explore Packages →
               </Link>
@@ -122,7 +122,7 @@ export default function HeroSection({ waNumber }: Props) {
               className="w-full rounded-2xl overflow-hidden relative"
               style={{
                 height: 340,
-                background: 'linear-gradient(145deg, #1a2e1b 0%, #2c4a2e 40%, #1e3a3f 100%)',
+                background: 'linear-gradient(145deg, #071525 0%, #0d2145 40%, #0a1e3a 100%)',
                 boxShadow: '0 24px 64px rgba(0,0,0,0.4)',
               }}
             >
@@ -135,12 +135,12 @@ export default function HeroSection({ waNumber }: Props) {
                 {/* Sky glow */}
                 <defs>
                   <radialGradient id="glow" cx="50%" cy="35%" r="50%">
-                    <stop offset="0%" stopColor="#D4860A" stopOpacity="0.25" />
-                    <stop offset="100%" stopColor="#D4860A" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#4db8ff" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#4db8ff" stopOpacity="0" />
                   </radialGradient>
                   <radialGradient id="moon" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#F5A623" stopOpacity="0.9" />
-                    <stop offset="100%" stopColor="#D4860A" stopOpacity="0.4" />
+                    <stop offset="0%" stopColor="#7bcfff" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#4db8ff" stopOpacity="0.4" />
                   </radialGradient>
                 </defs>
                 <rect width="420" height="340" fill="url(#glow)" />
@@ -156,38 +156,38 @@ export default function HeroSection({ waNumber }: Props) {
                 {/* Far mountains — light */}
                 <path
                   d="M0,200 L60,130 L120,170 L180,100 L240,150 L300,90 L360,140 L420,110 L420,340 L0,340 Z"
-                  fill="rgba(74,124,142,0.18)"
+                  fill="rgba(44,123,240,0.18)"
                 />
                 {/* Mid mountains */}
                 <path
                   d="M0,240 L80,160 L150,200 L210,130 L280,180 L340,120 L420,160 L420,340 L0,340 Z"
-                  fill="rgba(44,80,46,0.5)"
+                  fill="rgba(7,45,100,0.5)"
                 />
                 {/* Near mountains — dark */}
                 <path
                   d="M0,280 L70,210 L130,250 L190,185 L260,235 L320,175 L380,220 L420,200 L420,340 L0,340 Z"
-                  fill="rgba(28,48,30,0.9)"
+                  fill="rgba(5,20,50,0.9)"
                 />
                 {/* Ground */}
-                <rect x="0" y="305" width="420" height="35" fill="rgba(20,35,22,0.95)" />
+                <rect x="0" y="305" width="420" height="35" fill="rgba(5,15,35,0.95)" />
 
                 {/* Road */}
                 <path
                   d="M190,340 L195,310 L210,305 L225,310 L230,340 Z"
-                  fill="rgba(212,134,10,0.15)"
+                  fill="rgba(77,184,255,0.15)"
                 />
 
                 {/* Pine trees */}
                 {[30,60,80,350,380,400].map((x,i) => (
                   <g key={i}>
-                    <polygon points={`${x},290 ${x-8},315 ${x+8},315`} fill="rgba(20,40,22,1)" />
-                    <polygon points={`${x},302 ${x-6},320 ${x+6},320`} fill="rgba(24,46,26,1)" />
+                    <polygon points={`${x},290 ${x-8},315 ${x+8},315`} fill="rgba(5,20,50,1)" />
+                    <polygon points={`${x},302 ${x-6},320 ${x+6},320`} fill="rgba(7,25,60,1)" />
                   </g>
                 ))}
               </svg>
 
               {/* Overlay text */}
-              <div className="absolute bottom-0 left-0 right-0 p-5" style={{ background: 'linear-gradient(to top, rgba(20,35,22,0.9) 0%, transparent 100%)' }}>
+              <div className="absolute bottom-0 left-0 right-0 p-5" style={{ background: 'linear-gradient(to top, rgba(5,15,35,0.9) 0%, transparent 100%)' }}>
                 <div className="text-[11px] font-semibold tracking-[0.12em] uppercase text-saffron/80 mb-1">Uttarakhand, India</div>
                 <div className="text-white text-sm font-medium opacity-80">Kedarnath · Auli · Char Dham · Valley of Flowers</div>
               </div>

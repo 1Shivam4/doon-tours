@@ -15,7 +15,7 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: 'system-ui, sans-serif', background: '#F8F7F4' }}>
+      <body style={{ margin: 0, fontFamily: 'system-ui, sans-serif', background: '#f0f5ff' }}>
         <div style={{
           minHeight: '100vh',
           display: 'flex',
@@ -26,7 +26,7 @@ export default function GlobalError({
           textAlign: 'center',
         }}>
           <p style={{ fontSize: 48, marginBottom: 16 }}>⛰️</p>
-          <h1 style={{ fontSize: 28, fontWeight: 600, color: '#3D2B1F', margin: '0 0 12px' }}>
+          <h1 style={{ fontSize: 28, fontWeight: 600, color: '#0d1e38', margin: '0 0 12px' }}>
             Something went seriously wrong
           </h1>
           <p style={{ color: '#6B7280', fontSize: 15, lineHeight: 1.7, maxWidth: 400, margin: '0 0 32px' }}>
@@ -35,7 +35,7 @@ export default function GlobalError({
           <button
             onClick={reset}
             style={{
-              background: '#2C3E2D',
+              background: '#071525',
               color: '#fff',
               border: 'none',
               borderRadius: 8,

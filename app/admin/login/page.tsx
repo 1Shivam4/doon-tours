@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
             onChange={e => setPassword(e.target.value)}
             placeholder="Enter admin password"
             required
-            className="w-full text-sm text-bark bg-white border border-border rounded-lg px-4 py-3 outline-none focus:border-forest focus:shadow-[0_0_0_3px_rgba(44,62,45,0.1)] mb-4"
+            className="w-full text-sm text-bark bg-white border border-border rounded-lg px-4 py-3 outline-none focus:border-forest focus:shadow-[0_0_0_3px_rgba(13,33,69,0.12)] mb-4"
           />
 
           {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
