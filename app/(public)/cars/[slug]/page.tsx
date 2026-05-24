@@ -9,6 +9,8 @@ import InquirySidebar from './InquirySidebar'
 import JsonLd from '@/components/JsonLd'
 import PageHero from '@/components/PageHero'
 
+export const revalidate = 3600
+
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'
 
 type Params = Promise<{ slug: string }>

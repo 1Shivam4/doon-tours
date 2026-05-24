@@ -3,11 +3,14 @@ import Blog from '@/lib/models/Blog'
 import { serialize } from '@/lib/serialize'
 import { notFound } from 'next/navigation'
 import { getSettings } from '@/lib/getSettings'
+import { cloudinaryUrl } from '@/lib/cloudinary'
 import Link from 'next/link'
 import Image from 'next/image'
 import PageHero from '@/components/PageHero'
 import CtaBanner from '@/components/home/CtaBanner'
 import type { Metadata } from 'next'
+
+export const revalidate = 3600
 
 type Ctx = { params: Promise<{ slug: string }> }
 
@@ -145,7 +148,7 @@ export default async function BlogDetailPage({ params }: Ctx) {
                 {mainImage && (
                   <div className="relative h-[200px] w-full bg-white border-b border-[#a2a9b1] p-2 flex items-center justify-center">
                     <img
-                      src={mainImage}
+                      src={cloudinaryUrl(mainImage)}
                       alt={blog.title}
                       className="max-h-full max-w-full object-contain mx-auto"
                     />
@@ -202,7 +205,7 @@ export default async function BlogDetailPage({ params }: Ctx) {
                     <div key={idx} className="border border-[#ccc] p-3 bg-[#f8f9fa] shadow-sm rounded-lg flex flex-col">
                       <div className="relative h-44 w-full bg-white rounded overflow-hidden">
                         <img
-                          src={img}
+                          src={cloudinaryUrl(img)}
                           alt={`${blog.title} view ${idx + 2}`}
                           className="w-full h-full object-cover"
                         />

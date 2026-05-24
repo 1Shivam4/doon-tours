@@ -8,6 +8,8 @@ import CtaBanner from '@/components/home/CtaBanner'
 import BlogsClient from './BlogsClient'
 import type { Metadata } from 'next'
 
+export const revalidate = 3600
+
 export const metadata: Metadata = {
   title: 'Uttarakhand Travel Guides — Char Dham Yatra, Treks, Hill Stations & More',
   description: 'Complete travel wiki, local guides, and detailed itineraries for Uttarakhand — from Char Dham pilgrimage routes to Auli skiing, Valley of Flowers treks, and hidden hill stations. Expert insights from locals.',

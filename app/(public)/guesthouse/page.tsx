@@ -7,6 +7,8 @@ import { serialize } from '@/lib/serialize'
 import CtaBanner from '@/components/home/CtaBanner'
 import PageHero from '@/components/PageHero'
 
+export const revalidate = 3600
+
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'
 
 export const metadata: Metadata = {

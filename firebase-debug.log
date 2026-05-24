@@ -1,0 +1,27 @@
+[debug] [2026-05-24T13:05:53.857Z] ----------------------------------------------------------------------
+[debug] [2026-05-24T13:05:53.862Z] Command:       /home/shivam/.nvm/versions/node/v24.14.1/bin/node /home/shivam/.bun/bin/firebase deploy
+[debug] [2026-05-24T13:05:53.862Z] CLI Version:   15.18.0
+[debug] [2026-05-24T13:05:53.863Z] Platform:      linux
+[debug] [2026-05-24T13:05:53.863Z] Node Version:  v24.14.1
+[debug] [2026-05-24T13:05:53.863Z] Time:          Sun May 24 2026 18:35:53 GMT+0530 (India Standard Time)
+[debug] [2026-05-24T13:05:53.863Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-24T13:05:56.747Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-24T13:05:56.747Z] > authorizing via signed-in user (shivamsahni507@gmail.com)
+[debug] [2026-05-24T13:05:56.748Z] [iam] checking project devbhoomi-travels-7d791 for permissions ["firebase.projects.get"]
+[debug] [2026-05-24T13:05:56.749Z] Checked if tokens are valid: true, expires at: 1779630239489
+[debug] [2026-05-24T13:05:56.749Z] Checked if tokens are valid: true, expires at: 1779630239489
+[debug] [2026-05-24T13:05:56.750Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/devbhoomi-travels-7d791:testIamPermissions [none]
+[debug] [2026-05-24T13:05:56.750Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/devbhoomi-travels-7d791:testIamPermissions  x-goog-user-project=devbhoomi-travels-7d791
+[debug] [2026-05-24T13:05:56.750Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/devbhoomi-travels-7d791:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-05-24T13:05:58.562Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/devbhoomi-travels-7d791:testIamPermissions 200
+[debug] [2026-05-24T13:05:58.562Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/devbhoomi-travels-7d791:testIamPermissions {"permissions":["firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'devbhoomi-travels-7d791'...
+[info] 
+[info] i  deploying apphosting 
+[debug] [2026-05-24T13:05:58.568Z] Checked if tokens are valid: true, expires at: 1779630239489
+[debug] [2026-05-24T13:05:58.568Z] Checked if tokens are valid: true, expires at: 1779630239489
+[debug] [2026-05-24T13:05:58.568Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/devbhoomi-travels-7d791/serviceAccounts/firebase-app-hosting-compute@devbhoomi-travels-7d791.iam.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-05-24T13:05:58.568Z] >>> [apiv2][(partial)header] POST https://iam.googleapis.com/v1/projects/devbhoomi-travels-7d791/serviceAccounts/firebase-app-hosting-compute@devbhoomi-travels-7d791.iam.gserviceaccount.com:testIamPermissions  x-goog-user-project=devbhoomi-travels-7d791
+[debug] [2026-05-24T13:05:58.568Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/devbhoomi-travels-7d791/serviceAccounts/firebase-app-hosting-compute@devbhoomi-travels-7d791.iam.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}

@@ -8,6 +8,8 @@ import FilterBar from './FilterBar'
 import PageHero from '@/components/PageHero'
 import type { Metadata } from 'next'
 
+export const revalidate = 3600
+
 export const metadata: Metadata = {
   title: 'Car Rental With Driver in Uttarakhand — SUVs, Sedans & Tempo Travellers',
   description: 'Rent well-maintained vehicles with experienced local drivers for Char Dham Yatra, Himalayan road trips, and airport transfers. Transparent pricing, 24/7 support. ₹3,000-15,000/day.',
