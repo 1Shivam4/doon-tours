@@ -29,7 +29,7 @@ export default async function AdminCarEditPage({ params }: { params: Params }) {
     <div className="p-8">
       <h1 className="font-serif text-3xl font-semibold text-bark mb-1">Edit Car</h1>
       <p className="text-sm text-stone mb-8">{car.name}</p>
-      <CarForm initial={initial} carId={id} />
+      <CarForm initial={initial} carId={id} initialImages={car.images ?? []} />
     </div>
   )
 }

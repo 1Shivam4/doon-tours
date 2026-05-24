@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import ImageUploader from './ImageUploader'
 
 interface Driver { _id: string; name: string }
 interface CarFormData {
@@ -20,12 +21,13 @@ function slugify(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
-export default function CarForm({ initial, carId }: { initial?: Partial<CarFormData>; carId?: string }) {
+export default function CarForm({ initial, carId, initialImages }: { initial?: Partial<CarFormData>; carId?: string; initialImages?: string[] }) {
   const router  = useRouter()
   const isEdit  = Boolean(carId)
   const [drivers, setDrivers] = useState<Driver[]>([])
   const [saving, setSaving]   = useState(false)
   const [error, setError]     = useState('')
+  const [images, setImages]   = useState<string[]>(initialImages ?? [])
   const [form, setForm]       = useState<CarFormData>({
     name: '', slug: '', type: 'SUV', seats: 7, fuel: 'Diesel',
     pricePerDay: 0, features: '', driver: '', isAvailable: true,
@@ -52,6 +54,7 @@ export default function CarForm({ initial, carId }: { initial?: Partial<CarFormD
       ...form,
       features: form.features.split(',').map(f => f.trim()).filter(Boolean),
       driver:   form.driver || null,
+      images,
     }
     try {
       const url    = isEdit ? `/api/cars/${form.slug}` : '/api/cars'
@@ -147,6 +150,13 @@ export default function CarForm({ initial, carId }: { initial?: Partial<CarFormD
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Images */}
+      <div className="bg-white border border-border rounded-xl p-6">
+        <h2 className="font-serif text-lg font-semibold text-bark mb-1">Photos</h2>
+        <p className="text-xs text-stone mb-4">First photo is shown as the main image. You can add multiple.</p>
+        <ImageUploader images={images} onChange={setImages} />
       </div>
 
       {error && <p className="text-red-500 text-sm bg-red-50 border border-red-200 rounded-lg px-4 py-3">{error}</p>}
