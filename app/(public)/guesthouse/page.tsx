@@ -5,6 +5,7 @@ import { connectDB } from '@/lib/db'
 import Guesthouse from '@/lib/models/Guesthouse'
 import { serialize } from '@/lib/serialize'
 import CtaBanner from '@/components/home/CtaBanner'
+import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = { title: 'Guesthouse' }
 
@@ -18,16 +19,14 @@ export default async function GuesthousePage() {
   const waNumber = settings.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
 
   return (
-    <div style={{ paddingTop: 'var(--nav-height)' }}>
-      <div className="bg-forest">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-16">
-          <div className="text-[11px] font-semibold tracking-[0.14em] uppercase text-saffron mb-3">Stay With Us</div>
-          <h1 className="font-serif text-[clamp(36px,5vw,52px)] font-semibold text-white leading-[1.1] mb-4">Guesthouse</h1>
-          <p className="text-base text-white/65 max-w-[460px] leading-[1.75]">
-            Comfortable, clean accommodation in the heart of Uttarakhand — the perfect base for your mountain travels.
-          </p>
-        </div>
-      </div>
+    <div>
+      <PageHero
+        badge="Stay With Us"
+        title="Guesthouse"
+        subtitle="Comfortable, clean accommodation in the heart of Uttarakhand — the perfect base for your mountain travels."
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Guesthouse' }]}
+        image="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1400&q=80"
+      />
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-14">
         {guesthouses.length === 0 ? (

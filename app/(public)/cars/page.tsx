@@ -1,11 +1,11 @@
 import { Suspense } from 'react'
-import Link from 'next/link'
 import { connectDB } from '@/lib/db'
 import Car from '@/lib/models/Car'
 import { serialize } from '@/lib/serialize'
 import { getSettings } from '@/lib/getSettings'
 import CarCard from '@/components/CarCard'
 import FilterBar from './FilterBar'
+import PageHero from '@/components/PageHero'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -38,24 +38,14 @@ export default async function CarsPage({ searchParams }: { searchParams: SearchP
   const cars = serialize(rawCars)
 
   return (
-    <div style={{ paddingTop: 'var(--nav-height)' }}>
-
-      {/* Page header */}
-      <div className="border-b border-border">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8 pt-12 pb-10">
-          <nav className="flex items-center gap-[6px] text-[13px] text-stone mb-5">
-            <Link href="/" className="hover:text-forest transition-colors">Home</Link>
-            <span className="text-mist-dark text-[10px]">›</span>
-            <span className="text-bark font-medium">Our Fleet</span>
-          </nav>
-          <h1 className="font-serif text-[clamp(36px,5vw,52px)] font-semibold text-bark leading-[1.1] mb-3">
-            Our Fleet
-          </h1>
-          <p className="text-base text-stone leading-[1.65]">
-            Hand-picked vehicles for mountain terrain — with drivers who know every route.
-          </p>
-        </div>
-      </div>
+    <div>
+      <PageHero
+        badge="Our Fleet"
+        title="Vehicles Built for the Mountains"
+        subtitle="Hand-picked SUVs, Sedans and Tempo Travellers — with experienced local drivers who know every route in Uttarakhand."
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Our Fleet' }]}
+        image="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1400&q=80"
+      />
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-10">
 

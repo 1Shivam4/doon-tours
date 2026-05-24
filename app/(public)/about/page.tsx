@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { getSettings } from '@/lib/getSettings'
+import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -43,25 +44,14 @@ export default async function AboutPage() {
   const waHref = waNumber ? `https://wa.me/${waNumber}?text=${encodeURIComponent('Hi! I would like to know more about DevBhumi Travels.')}` : '#'
 
   return (
-    <div style={{ paddingTop: 'var(--nav-height)' }}>
-
-      {/* Hero */}
-      <section className="bg-forest text-white">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-20 md:py-28">
-          <nav className="flex items-center gap-[6px] text-[13px] text-white/50 mb-6">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span className="text-white/30 text-[10px]">›</span>
-            <span className="text-white/80">About</span>
-          </nav>
-          <h1 className="font-serif text-[clamp(40px,6vw,64px)] font-semibold leading-[1.1] mb-5 max-w-[640px]">
-            Rooted in Uttarakhand.<br />Built for the mountains.
-          </h1>
-          <p className="text-white/65 text-[17px] leading-[1.75] max-w-[540px]">
-            DevBhumi Travels was founded by locals who grew up navigating these roads.
-            We&apos;re not a marketplace — every car, every driver, every route is one we personally stand behind.
-          </p>
-        </div>
-      </section>
+    <div>
+      <PageHero
+        badge="Our Story"
+        title={`Rooted in Uttarakhand.\nBuilt for the mountains.`}
+        subtitle="DevBhumi Travels was founded by locals who grew up navigating these roads. Every car, every driver, every route is one we personally stand behind."
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'About' }]}
+        image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80"
+      />
 
       {/* Story */}
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-16 md:py-24">

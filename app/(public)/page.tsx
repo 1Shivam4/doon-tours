@@ -13,6 +13,7 @@ import FleetPreview from '@/components/home/FleetPreview'
 import HowItWorks from '@/components/home/HowItWorks'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
 import CtaBanner from '@/components/home/CtaBanner'
+import FaqSection, { faqSchema } from '@/components/home/FaqSection'
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'
 
@@ -63,12 +64,14 @@ export default async function HomePage() {
   return (
     <>
       <JsonLd data={localBusinessSchema} />
+      <JsonLd data={faqSchema} />
       <HeroSection waNumber={waNumber} />
       <TrustBar />
       <DestinationsSection destinations={destinations} />
       <FleetPreview cars={cars} waNumber={waNumber} />
       <HowItWorks />
       <TestimonialsSection testimonials={testimonials} />
+      <FaqSection />
       <CtaBanner waNumber={waNumber} />
     </>
   )

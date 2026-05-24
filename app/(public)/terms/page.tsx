@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions',
@@ -42,18 +43,13 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <div style={{ paddingTop: 'var(--nav-height)' }}>
-
-      {/* Header */}
-      <div className="bg-forest">
-        <div className="max-w-[760px] mx-auto px-6 md:px-8 py-16">
-          <div className="text-[11px] font-semibold tracking-[0.14em] uppercase text-saffron mb-3">Legal</div>
-          <h1 className="font-serif text-[clamp(32px,5vw,48px)] font-semibold text-white leading-[1.1] mb-4">
-            Terms &amp; Conditions
-          </h1>
-          <p className="text-sm text-white/55">Last updated: January 2025</p>
-        </div>
-      </div>
+    <div>
+      <PageHero
+        badge="Legal"
+        title="Terms & Conditions"
+        subtitle="Last updated: January 2025"
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Terms & Conditions' }]}
+      />
 
       {/* Content */}
       <div className="max-w-[760px] mx-auto px-6 md:px-8 py-14">

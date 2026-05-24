@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getSettings } from '@/lib/getSettings'
 import ContactForm from '@/components/ContactForm'
+import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -13,22 +14,14 @@ export default async function ContactPage() {
   const waHref   = `https://wa.me/${waNumber}`
 
   return (
-    <div style={{ paddingTop: 'var(--nav-height)' }}>
-
-      {/* Header */}
-      <div className="bg-forest">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-16">
-          <div className="text-[11px] font-semibold tracking-[0.14em] uppercase text-saffron mb-3">
-            Get In Touch
-          </div>
-          <h1 className="font-serif text-[clamp(36px,5vw,52px)] font-semibold text-white leading-[1.1] mb-4">
-            Plan Your Trip
-          </h1>
-          <p className="text-base text-white/65 max-w-[460px] leading-[1.75]">
-            Tell us your dates, destinations and group size. We will respond within 30 minutes on WhatsApp.
-          </p>
-        </div>
-      </div>
+    <div>
+      <PageHero
+        badge="Get In Touch"
+        title="Plan Your Trip"
+        subtitle="Tell us your dates, destinations and group size. We will respond within 30 minutes on WhatsApp."
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
+        image="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1400&q=80"
+      />
 
       {/* Content */}
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-14">

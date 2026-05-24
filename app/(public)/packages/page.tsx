@@ -5,6 +5,7 @@ import { connectDB } from '@/lib/db'
 import Package from '@/lib/models/Package'
 import { serialize } from '@/lib/serialize'
 import CtaBanner from '@/components/home/CtaBanner'
+import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = { title: 'Tour Packages' }
 
@@ -18,16 +19,14 @@ export default async function PackagesPage() {
   const waNumber  = settings.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
 
   return (
-    <div style={{ paddingTop: 'var(--nav-height)' }}>
-      <div className="bg-forest">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-16">
-          <div className="text-[11px] font-semibold tracking-[0.14em] uppercase text-saffron mb-3">Curated Experiences</div>
-          <h1 className="font-serif text-[clamp(36px,5vw,52px)] font-semibold text-white leading-[1.1] mb-4">Tour Packages</h1>
-          <p className="text-base text-white/65 max-w-[460px] leading-[1.75]">
-            Handcrafted itineraries for the most beautiful routes in Uttarakhand — everything arranged, nothing to worry about.
-          </p>
-        </div>
-      </div>
+    <div>
+      <PageHero
+        badge="Curated Experiences"
+        title="Tour Packages"
+        subtitle="Handcrafted itineraries for the most beautiful routes in Uttarakhand — everything arranged, nothing to worry about."
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Packages' }]}
+        image="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80"
+      />
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-14">
         {packages.length === 0 ? (

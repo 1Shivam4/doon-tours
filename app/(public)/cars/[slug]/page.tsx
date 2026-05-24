@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { connectDB } from '@/lib/db'
@@ -8,6 +7,7 @@ import { getSettings } from '@/lib/getSettings'
 import { serialize } from '@/lib/serialize'
 import InquirySidebar from './InquirySidebar'
 import JsonLd from '@/components/JsonLd'
+import PageHero from '@/components/PageHero'
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'
 
@@ -81,18 +81,20 @@ export default async function CarDetailPage({ params }: { params: Params }) {
   }
 
   return (
-    <div style={{ paddingTop: 'var(--nav-height)' }}>
+    <div>
       <JsonLd data={serviceSchema} />
+      <PageHero
+        badge={car.type}
+        title={car.name}
+        subtitle={`${car.seats}-seater · ${car.fuel} · ₹${car.pricePerDay.toLocaleString('en-IN')} per day · Driver included`}
+        breadcrumb={[
+          { label: 'Home', href: '/' },
+          { label: 'Our Fleet', href: '/cars' },
+          { label: car.name },
+        ]}
+        image={car.images?.[0]}
+      />
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-10">
-
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-[6px] text-[13px] text-stone mb-8">
-          <Link href="/" className="hover:text-forest transition-colors">Home</Link>
-          <span className="text-mist-dark text-[10px]">›</span>
-          <Link href="/cars" className="hover:text-forest transition-colors">Our Fleet</Link>
-          <span className="text-mist-dark text-[10px]">›</span>
-          <span className="text-bark font-medium">{car.name}</span>
-        </nav>
 
         {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 items-start">
