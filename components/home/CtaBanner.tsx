@@ -25,11 +25,12 @@ export default function CtaBanner({ waNumber }: Props) {
             Plan Your Journey
           </div>
           <h2 className="font-serif text-[clamp(28px,4vw,36px)] font-semibold text-white leading-[1.15] mb-2">
-            Ready to explore<br />Uttarakhand?
+            Ready to explore the mountains?<br />
+            <span className="text-white/70">Let's plan your perfect trip.</span>
           </h2>
           <p className="text-[15px] leading-[1.6]" style={{ color: 'rgba(255,255,255,0.55)' }}>
-            Tell us your dates, destinations and group size.<br />
-            We&apos;ll take care of the rest.
+            Choose your destination, tell us your dates, and we'll handle the rest.
+No hidden costs. No stress. Just unforgettable memories.
           </p>
         </div>
 

@@ -3,52 +3,55 @@ import type { Metadata } from 'next'
 import { getSettings } from '@/lib/getSettings'
 import PageHero from '@/components/PageHero'
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'
+
 export const metadata: Metadata = {
   title: 'About Us',
   description: 'DevBhumi Travels — your trusted local guide to the Himalayas. Based in Uttarakhand, built on a decade of mountain road experience.',
+  alternates: { canonical: `${BASE_URL}/about` },
 }
 
 const values = [
   {
     icon: '🏔️',
-    title: 'Local expertise',
-    body: 'Our drivers know every curve between Rishikesh and Kedarnath. No navigation guesswork — just experience built over years on these roads.',
+    title: 'Local Vetted Network',
+    body: 'We are your dedicated travel partner in Uttarakhand. We connect you directly with a hand-selected network of certified hill drivers, cozy guesthouses, and organic farmhouses.',
   },
   {
     icon: '🚗',
-    title: 'Well-maintained fleet',
-    body: 'Our SUVs and Tempo Travellers are serviced regularly and fitted for mountain terrain — winter tyres, first-aid kits, and reliable 4WD where it counts.',
+    title: 'Fleet & Safety Vetting',
+    body: 'All vehicles in our network—from Innovas to Tempo Travellers—are rigorously inspected. Our drivers are Himalayan locals who understand mountain terrain and prioritize safety.',
   },
   {
-    icon: '🤝',
-    title: 'Transparent pricing',
-    body: 'What we quote is what you pay. No hidden tolls, no surprise surcharges. We settle everything upfront so you can focus on the journey.',
+    icon: '🏡',
+    title: 'Curated Homestays & Stays',
+    body: 'We partner directly with family-run guesthouses and organic farmhouses, ensuring you experience genuine Kumaoni and Garhwali hospitality with guaranteed hygiene.',
   },
   {
-    icon: '📍',
-    title: 'Pilgrimage specialists',
-    body: 'Char Dham Yatra, Hemkund Sahib, Triyuginarayan — we\'ve covered every sacred circuit and understand the seasonal access windows.',
+    icon: '🗺️',
+    title: 'Custom Packages & B2B Partner',
+    body: 'From sacred Char Dham Yatras to off-grid treks, we design customized itineraries. We act as your on-ground travel agent and partner, offering direct, friction-free pricing.',
   },
 ]
 
 const milestones = [
-  { year: '2014', event: 'Founded in Dehradun with one Innova and a simple promise — be reliable.' },
-  { year: '2017', event: 'Expanded to a 10-vehicle fleet to handle Char Dham season demand.' },
-  { year: '2020', event: 'Digitised bookings and launched the first WhatsApp-first enquiry system.' },
-  { year: '2024', event: 'Crossed 5,000 successful journeys across Uttarakhand\'s highways and high passes.' },
+  { year: '2026', event: 'Launched the unified DevBhumi Travels online portal to coordinate regional drivers, cozy guesthouses, and organic farmhouses.' },
+  { year: '2026', event: 'Partnered with over 50+ local farmhouses and mountain guesthouses across Garhwal & Kumaon.' },
+  { year: '2026', event: 'Introduced customized pilgrimage, family, and adventure packages with transparent, agent-direct pricing.' },
+  { year: '2026', event: 'Launched a frictionless WhatsApp enquiry system to connect travelers directly to local guides.' },
 ]
 
 export default async function AboutPage() {
   const settings = await getSettings()
   const waNumber = settings.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
-  const waHref = waNumber ? `https://wa.me/${waNumber}?text=${encodeURIComponent('Hi! I would like to know more about DevBhumi Travels.')}` : '#'
+  const waHref = waNumber ? `https://wa.me/${waNumber}?text=${encodeURIComponent('Hi! I would like to enquire about travel packages and stays with DevBhumi Travels.')}` : '#'
 
   return (
     <div>
       <PageHero
-        badge="Our Story"
-        title={`Rooted in Uttarakhand.\nBuilt for the mountains.`}
-        subtitle="DevBhumi Travels was founded by locals who grew up navigating these roads. Every car, every driver, every route is one we personally stand behind."
+        badge="Our Vision for 2026"
+        title={`Your Local Travel Partner\nin Uttarakhand.`}
+        subtitle="DevBhumi Travels is a modern booking platform connecting you with Uttarakhand's finest drivers, rustic farmhouses, cozy guesthouses, and customized itineraries."
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'About' }]}
         image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80"
       />
@@ -58,21 +61,20 @@ export default async function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <h2 className="font-serif text-[clamp(28px,3.5vw,40px)] font-semibold text-bark leading-[1.2] mb-5">
-              A decade on Himalayan roads
+              Connecting you directly to the soul of the Himalayas
             </h2>
             <div className="flex flex-col gap-4 text-[15px] text-stone leading-[1.8]">
               <p>
-                We started with a single Innova Crysta and one guiding principle: show up on time, take people safely,
-                bring them home. A decade later we run a full fleet — but that principle hasn&apos;t moved an inch.
+                Launched in 2026, DevBhumi Travels was created to bridge the gap between travelers and authentic local hospitality. Instead of dealing with multi-layered booking agencies and markup fees, we serve as your direct travel partner, connecting you with verified drivers, homestays, and tour itineraries.
               </p>
               <p>
-                Uttarakhand is our home. The Garhwal hills, the Kumaon valleys, the high passes that close in winter —
-                we understand this terrain the way you understand your own street. That local knowledge is the most
-                valuable thing we bring to every trip.
+                We believe travel should benefit local communities. That's why we partner directly with independent hill drivers who know the safest routes, and family-run guesthouses and organic farmhouses situated in remote valleys. By booking with us, you support local livelihoods while enjoying a highly personalized, safe, and authentic mountain journey.
               </p>
               <p>
-                Whether you&apos;re embarking on a Char Dham Yatra, planning a family road trip to Auli, or need a
-                reliable cab for a Dehradun airport transfer, we treat every booking with the same care.
+                Whether you are planning a sacred Char Dham pilgrimage, a family holiday to Mussoorie, or a trek to the Valley of Flowers, our network is ready to support you. We coordinate all logistics, provide clear quotes, and offer 24/7 support.
+              </p>
+              <p>
+                Let us be your trusted on-ground partner. From your first enquiry to the final drop-off, we ensure every detail is handled with transparency, care, and local expertise.
               </p>
             </div>
           </div>
@@ -80,14 +82,14 @@ export default async function AboutPage() {
           {/* Timeline */}
           <div className="flex flex-col gap-0">
             {milestones.map((m, i) => (
-              <div key={m.year} className="flex gap-5">
+              <div key={m.event} className="flex gap-5">
                 <div className="flex flex-col items-center">
                   <div className="w-9 h-9 rounded-full bg-forest text-white text-[11px] font-bold flex items-center justify-center flex-shrink-0">
-                    {m.year.slice(2)}
+                    26
                   </div>
                   {i < milestones.length - 1 && <div className="w-px flex-1 bg-mist-dark my-1" />}
                 </div>
-                <div className={`pb-8 ${i === milestones.length - 1 ? '' : ''}`}>
+                <div className="pb-8">
                   <div className="text-[11px] font-semibold text-saffron tracking-wide mb-1">{m.year}</div>
                   <p className="text-[14px] text-stone leading-[1.65]">{m.event}</p>
                 </div>

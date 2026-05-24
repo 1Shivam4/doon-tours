@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params
   await connectDB()
-  const car = await Car.findOne({ slug }).lean<CarLean>()
+  const car = await Car.findOne({ slug }).lean<CarLean & { images?: string[] }>()
   if (!car) return { title: 'Car Not Found' }
   const description = `Hire the ${car.name} (${car.seats}-seater, ${car.fuel}) for ₹${car.pricePerDay.toLocaleString('en-IN')}/day in Uttarakhand. Experienced driver included. Char Dham, Kedarnath & Rishikesh routes.`
   return {
@@ -35,6 +35,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       title: `${car.name} — DevBhumi Travels`,
       description,
       url: `${BASE_URL}/cars/${car.slug}`,
+      images: car.images && car.images.length > 0
+        ? [{ url: car.images[0], width: 1200, height: 630, alt: `${car.name} - DevBhumi Travels` }]
+        : undefined,
     },
   }
 }
@@ -57,6 +60,16 @@ export default async function CarDetailPage({ params }: { params: Params }) {
   const car    = serialize(rawCar)
   const waNumber = settings.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
   const badgeClass = TYPE_BADGE[car.type] ?? 'bg-stone'
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Our Fleet', item: `${BASE_URL}/cars` },
+      { '@type': 'ListItem', position: 3, name: car.name, item: `${BASE_URL}/cars/${car.slug}` },
+    ],
+  }
 
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -82,6 +95,7 @@ export default async function CarDetailPage({ params }: { params: Params }) {
 
   return (
     <div>
+      <JsonLd data={breadcrumbSchema} />
       <JsonLd data={serviceSchema} />
       <PageHero
         badge={car.type}

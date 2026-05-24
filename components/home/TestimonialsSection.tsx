@@ -19,11 +19,12 @@ export default function TestimonialsSection({ testimonials }: Props) {
       {/* Header */}
       <div className="text-center mb-10">
         <div className="text-[11px] font-semibold tracking-[0.14em] uppercase text-saffron mb-2">
-          Traveller Stories
+          Real Journeys, Real Stories
         </div>
         <h2 className="font-serif text-[clamp(32px,4vw,44px)] font-semibold text-bark leading-[1.12] tracking-[-0.01em]">
-          What our travellers <em className="not-italic text-stone">say</em>
+          What travellers tell us <em className="not-italic text-stone">after their journey</em>
         </h2>
+        <p className="text-base text-stone leading-[1.75] max-w-[480px] mx-auto mt-3">From pilgrims completing their Char Dham Yatra to families rediscovering mountain magic together.</p>
       </div>
 
       {/* Cards */}

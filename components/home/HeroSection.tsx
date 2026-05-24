@@ -5,19 +5,20 @@ interface Props {
 }
 
 const trustCards = [
-  { icon: '🏔️', value: '5,000+', label: 'Trips completed' },
-  { icon: '⭐', value: '4.9',    label: 'Average rating' },
-  { icon: '🧭', value: '10+',   label: 'Years on the road' },
+  { icon: '🏔️', value: '50+',   label: 'Homestays & Farms' },
+  { icon: '⭐', value: '4.9',    label: 'Guest satisfaction' },
+  { icon: '🧭', value: '2026',  label: 'Himalayan Portal' },
 ]
 
 const quickTrust = [
-  'Licensed hill drivers',
-  'No hidden charges',
-  '30-min WhatsApp response',
+  '✓ Vetted local hill drivers',
+  '✓ Direct host & farmhouse booking',
+  '✓ Handcrafted tour packages',
+  '✓ 24/7 WhatsApp enquiry support',
 ]
 
 export default function HeroSection({ waNumber }: Props) {
-  const waHref = `https://wa.me/${waNumber}?text=${encodeURIComponent('Hi! I would like to plan an Uttarakhand trip with DevBhumi Travels.')}`
+  const waHref = `https://wa.me/${waNumber}?text=${encodeURIComponent('Hi! I would like to plan a custom trip to Uttarakhand with DevBhumi Travels.')}`
 
   return (
     <section
@@ -56,13 +57,12 @@ export default function HeroSection({ waNumber }: Props) {
                 className="w-5 h-[1.5px] bg-saffron"
                 style={{ display: 'inline-block' }}
               />
-              Uttarakhand Specialists · Est. 2014
+              Uttarakhand Travel Portal · Launching 2026
             </div>
 
             {/* Headline */}
             <h1 className="font-serif text-[clamp(40px,5.5vw,68px)] font-semibold text-white leading-[1.05] tracking-[-0.01em] mb-5">
-              Explore Uttarakhand<br />
-              with{' '}
+              Local Stays &<br />
               <span
                 className="relative"
                 style={{
@@ -72,23 +72,22 @@ export default function HeroSection({ waNumber }: Props) {
                   backgroundClip: 'text',
                 }}
               >
-                Trusted Local
+                Tailored Journeys
               </span>
-              <br />Drivers
             </h1>
 
             {/* Sub */}
-            <p className="text-[16px] text-white/60 leading-[1.8] mb-8 max-w-[460px]">
-              From Char Dham pilgrimages to Himalayan road trips — safe, comfortable and affordable travel across Uttarakhand with drivers who know every road.
+            <p className="text-[16px] text-white/60 leading-[1.8] mb-8 max-w-[480px]">
+              We connect you directly with hill-certified drivers, handpicked guesthouses, and serene organic farmhouses across Uttarakhand. Settle details directly, avoid hefty agency markups, and plan your perfect Himalayan pilgrimage or retreat with our tailored tour packages.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-3 mb-8">
               <Link
-                href="/cars"
+                href="/packages"
                 className="inline-flex items-center gap-2 bg-saffron hover:bg-saffron-light text-white text-sm font-semibold px-7 py-[14px] rounded-lg transition-all hover:-translate-y-px shadow-[0_4px_20px_rgba(212,134,10,0.35)]"
               >
-                Browse Our Fleet →
+                Explore Packages →
               </Link>
               <a
                 href={waHref}
@@ -97,7 +96,7 @@ export default function HeroSection({ waNumber }: Props) {
                 className="inline-flex items-center gap-2 text-white text-sm font-semibold px-7 py-[14px] rounded-lg transition-all hover:-translate-y-px"
                 style={{ background: 'rgba(255,255,255,0.09)', border: '1px solid rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)' }}
               >
-                💬 Get a Free Quote
+                💬 Send Enquiry Quote
               </a>
             </div>
 

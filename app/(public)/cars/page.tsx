@@ -9,8 +9,8 @@ import PageHero from '@/components/PageHero'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Our Fleet',
-  description: 'Hand-picked vehicles for mountain terrain — with drivers who know every route in Uttarakhand.',
+  title: 'Car Rental With Driver in Uttarakhand — SUVs, Sedans & Tempo Travellers',
+  description: 'Rent well-maintained vehicles with experienced local drivers for Char Dham Yatra, Himalayan road trips, and airport transfers. Transparent pricing, 24/7 support. ₹3,000-15,000/day.',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'}/cars`,
   },
@@ -41,10 +41,10 @@ export default async function CarsPage({ searchParams }: { searchParams: SearchP
     <div>
       <PageHero
         badge="Our Fleet"
-        title="Vehicles Built for the Mountains"
-        subtitle="Hand-picked SUVs, Sedans and Tempo Travellers — with experienced local drivers who know every route in Uttarakhand."
+        title="Choose the Right Car for Your Journey"
+        subtitle="From Innova Crysta SUVs for couples to Tempo Travellers for groups — all with professional drivers licensed for mountain terrain. Available for airport transfers, day trips, or multi-day expeditions across Uttarakhand."
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Our Fleet' }]}
-        image="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1400&q=80"
+        image="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?auto=format&fit=crop&w=1400&q=80"
       />
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-10">

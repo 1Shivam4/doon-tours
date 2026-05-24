@@ -1,6 +1,7 @@
 import { connectDB } from '@/lib/db'
 import Car from '@/lib/models/Car'
-import Destination from '@/lib/models/Destination'
+import Blog from '@/lib/models/Blog'
+import { seedBlogs } from '@/lib/seedBlogs'
 import Testimonial from '@/lib/models/Testimonial'
 import { getSettings } from '@/lib/getSettings'
 import { serialize } from '@/lib/serialize'
@@ -12,6 +13,7 @@ import DestinationsSection from '@/components/home/DestinationsSection'
 import FleetPreview from '@/components/home/FleetPreview'
 import HowItWorks from '@/components/home/HowItWorks'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
+import PartnersSection from '@/components/home/PartnersSection'
 import CtaBanner from '@/components/home/CtaBanner'
 import FaqSection, { faqSchema } from '@/components/home/FaqSection'
 
@@ -19,16 +21,17 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.co
 
 export default async function HomePage() {
   await connectDB()
+  await seedBlogs()
 
-  const [settings, rawCars, rawDestinations, rawTestimonials] = await Promise.all([
+  const [settings, rawCars, rawBlogs, rawTestimonials] = await Promise.all([
     getSettings(),
     Car.find({ isAvailable: true }).populate('driver').limit(3).sort({ createdAt: 1 }).lean(),
-    Destination.find({ isActive: true }).sort({ order: 1 }).lean(),
+    Blog.find({ isActive: true }).sort({ order: 1 }).limit(6).lean(),
     Testimonial.find({ isApproved: true }).sort({ order: 1 }).limit(3).lean(),
   ])
 
   const cars         = serialize(rawCars)
-  const destinations = serialize(rawDestinations)
+  const destinations = serialize(rawBlogs)
   const testimonials = serialize(rawTestimonials)
   const waNumber     = settings.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
 
@@ -71,6 +74,7 @@ export default async function HomePage() {
       <FleetPreview cars={cars} waNumber={waNumber} />
       <HowItWorks />
       <TestimonialsSection testimonials={testimonials} />
+      <PartnersSection waNumber={waNumber} />
       <FaqSection />
       <CtaBanner waNumber={waNumber} />
     </>

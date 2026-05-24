@@ -1,18 +1,18 @@
 const steps = [
   {
     num: '1',
-    title: 'Browse our fleet',
-    desc:  'Pick the car and driver that best fits your route, group size, and budget.',
+    title: 'Tell us your plan',
+    desc:  'Message us on WhatsApp with your travel dates, route, group size, and budget. No forms, no friction — just a conversation.',
   },
   {
     num: '2',
-    title: 'Send requirements',
-    desc:  'WhatsApp or call us with your travel dates, pickup point and destinations.',
+    title: 'Get a detailed quote',
+    desc:  'We send back a transparent breakdown: vehicle cost, driver, fuel, estimated times, and any tolls/extras. No hidden charges, ever.',
   },
   {
     num: '3',
-    title: 'Travel with ease',
-    desc:  'Your driver arrives on time. Sit back and enjoy the Himalayas.',
+    title: 'Confirm and travel',
+    desc:  'Once you approve, your driver arrives on time with the right vehicle. Track the journey in real-time and relax.',
   },
 ]
 
@@ -24,11 +24,12 @@ export default function HowItWorks() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="text-[11px] font-semibold tracking-[0.14em] uppercase text-saffron mb-2">
-            Simple Process
+            Booking Made Easy
           </div>
           <h2 className="font-serif text-[clamp(32px,4vw,44px)] font-semibold text-bark leading-[1.12] tracking-[-0.01em]">
-            Plan your trip <em className="not-italic text-stone">in three steps</em>
+            Get quote to confirmation <em className="not-italic text-stone">in three simple steps</em>
           </h2>
+          <p className="text-base text-stone leading-[1.75] max-w-[520px] mx-auto mt-3">No complicated forms. No phone calls passed around. Just honest conversations and transparent pricing.</p>
         </div>
 
         {/* Steps */}

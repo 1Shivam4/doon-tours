@@ -51,10 +51,11 @@ export default function FaqSection() {
 
           {/* Header */}
           <div className="mb-10">
-            <div className="text-[11px] font-semibold tracking-[0.12em] uppercase text-saffron mb-3">FAQ</div>
-            <h2 className="font-serif text-[clamp(28px,3.5vw,40px)] font-semibold text-bark leading-[1.2]">
-              Common questions
+            <div className="text-[11px] font-semibold tracking-[0.12em] uppercase text-saffron mb-3">Got Questions?</div>
+            <h2 className="font-serif text-[clamp(28px,3.5vw,40px)] font-semibold text-bark leading-[1.2] mb-3">
+              Everything you need to know about booking with us
             </h2>
+            <p className="text-base text-stone leading-[1.75]">From Char Dham Yatra timings to vehicle options and seasonal access, we've answered the most common questions below.</p>
           </div>
 
           {/* Accordion */}

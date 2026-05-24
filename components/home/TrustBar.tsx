@@ -1,8 +1,8 @@
 const stats = [
-  { value: '500+', label: 'Trips Completed' },
-  { value: '15',   label: 'Cars in Fleet' },
-  { value: '8 yrs', label: 'Experience' },
-  { value: '4.9 ★', label: 'Google Rating' },
+  { value: '50+',   label: 'Homestays & Farms' },
+  { value: '15+',   label: 'Vetted Hill Drivers' },
+  { value: '100%',  label: 'Direct Pricing' },
+  { value: '4.9★', label: 'Guest Rating' },
 ]
 
 export default function TrustBar() {

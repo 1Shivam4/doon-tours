@@ -8,7 +8,8 @@ export default async function Navbar() {
     { label: 'Home',       href: '/' },
     { label: 'Our Fleet',  href: '/cars' },
     ...(settings.packagesEnabled   ? [{ label: 'Packages',   href: '/packages' }]   : []),
-    ...(settings.guesthouseEnabled ? [{ label: 'Guesthouse', href: '/guesthouse' }] : []),
+    ...(settings.guesthouseEnabled ? [{ label: 'Stays',      href: '/guesthouse' }] : []),
+    { label: 'Blogs',      href: '/blogs' },
     { label: 'Contact',    href: '/contact' },
   ]
 

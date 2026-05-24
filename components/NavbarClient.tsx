@@ -55,6 +55,7 @@ export default function NavbarClient({
             alt="logo"
             width={120}
             height={120}
+            priority
           />
         </Link>
 

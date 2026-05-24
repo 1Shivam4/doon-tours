@@ -3,9 +3,12 @@ import { getSettings } from '@/lib/getSettings'
 import ContactForm from '@/components/ContactForm'
 import PageHero from '@/components/PageHero'
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'
+
 export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with DevBhumi Travels. WhatsApp, call, or fill in the form and we will respond within 30 minutes.',
+  title: 'Contact DevBhumi Travels — 24/7 Trip Planning Support',
+  description: 'Get in touch with DevBhumi Travels for instant travel quotes and bookings. WhatsApp, call, or email — we respond within the hour with transparent pricing and expert advice.',
+  alternates: { canonical: `${BASE_URL}/contact` },
 }
 
 export default async function ContactPage() {
@@ -16,11 +19,11 @@ export default async function ContactPage() {
   return (
     <div>
       <PageHero
-        badge="Get In Touch"
-        title="Plan Your Trip"
-        subtitle="Tell us your dates, destinations and group size. We will respond within 30 minutes on WhatsApp."
+        badge="Plan With Confidence"
+        title="Let's Plan Your Journey"
+        subtitle="Share your travel dates, destinations, and group size. Our team responds within the hour on WhatsApp with a custom quote, no obligations. Your satisfaction is guaranteed."
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
-        image="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1400&q=80"
+        image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80"
       />
 
       {/* Content */}
@@ -29,7 +32,8 @@ export default async function ContactPage() {
 
           {/* Form */}
           <div>
-            <h2 className="font-serif text-2xl font-semibold text-bark mb-6">Send us your requirements</h2>
+            <h2 className="font-serif text-2xl font-semibold text-bark mb-6">Share your travel requirements</h2>
+            <p className="text-[14px] text-stone mb-6">Fill in your details below and we'll send you a detailed, transparent quote within one hour. Or skip the form and message us directly on WhatsApp for instant help.</p>
             <ContactForm />
           </div>
 

@@ -47,7 +47,7 @@ export default function TermsPage() {
       <PageHero
         badge="Legal"
         title="Terms & Conditions"
-        subtitle="Last updated: January 2025"
+        subtitle="Last updated: May 2026"
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Terms & Conditions' }]}
       />
 

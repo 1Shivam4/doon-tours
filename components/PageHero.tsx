@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export interface Crumb { label: string; href?: string }
 
@@ -14,16 +15,28 @@ interface Props {
 export default function PageHero({ badge, title, subtitle, breadcrumb, image }: Props) {
   return (
     <div
-      style={{
-        paddingTop: 'var(--nav-height)',
-        ...(image && {
-          backgroundImage: `linear-gradient(to bottom right, rgba(28,42,29,0.80) 0%, rgba(44,62,45,0.60) 100%), url(${image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }),
-      }}
       className={`relative overflow-hidden ${image ? '' : 'bg-forest'}`}
+      style={{ paddingTop: 'var(--nav-height)' }}
     >
+      {/* Background Image */}
+      {image && (
+        <>
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="absolute inset-0 object-cover -z-20"
+            priority
+          />
+          {/* Dark gradient overlay */}
+          <div
+            className="absolute inset-0 -z-10"
+            style={{
+              background: 'linear-gradient(to bottom right, rgba(28,42,29,0.80) 0%, rgba(44,62,45,0.60) 100%)',
+            }}
+          />
+        </>
+      )}
       {/* Noise texture overlay — only when no photo */}
       {!image && (
         <>
@@ -45,7 +58,9 @@ export default function PageHero({ badge, title, subtitle, breadcrumb, image }: 
         </>
       )}
 
-      <div className="relative max-w-[1280px] mx-auto px-6 md:px-8 py-16 md:py-24">
+      {/* Relative positioned content container */}
+
+      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8 py-16 md:py-24">
 
         {/* Breadcrumb */}
         {breadcrumb && breadcrumb.length > 0 && (

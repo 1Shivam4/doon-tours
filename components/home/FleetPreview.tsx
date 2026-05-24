@@ -15,12 +15,13 @@ export default function FleetPreview({ cars, waNumber }: Props) {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
           <div className="text-[11px] font-semibold tracking-[0.14em] uppercase text-saffron mb-2">
-            Our Fleet
+            Meet Your Vehicle
           </div>
           <h2 className="font-serif text-[clamp(32px,4vw,44px)] font-semibold text-bark leading-[1.12] tracking-[-0.01em]">
-            Vehicles built for<br />
-            <em className="not-italic text-stone">mountain terrain</em>
+            Well-maintained SUVs<br />
+            <em className="not-italic text-stone">for every journey type</em>
           </h2>
+          <p className="text-base text-stone leading-[1.75] max-w-[480px] mt-3">From comfortable Innova Crystas for couples to spacious Tempo Travellers for groups. Every vehicle is regularly serviced and fitted for mountain terrain.</p>
         </div>
         <Link
           href="/cars"

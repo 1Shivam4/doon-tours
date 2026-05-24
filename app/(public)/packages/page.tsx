@@ -7,7 +7,18 @@ import { serialize } from '@/lib/serialize'
 import CtaBanner from '@/components/home/CtaBanner'
 import PageHero from '@/components/PageHero'
 
-export const metadata: Metadata = { title: 'Tour Packages' }
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'
+
+export const metadata: Metadata = {
+  title: 'Tour Packages — Char Dham Yatra, Himalayan Trips & More',
+  description: 'Handcrafted multi-day itineraries across Uttarakhand. From Char Dham Yatra to Valley of Flowers and Auli road trips — all-inclusive packages with experienced drivers, comfortable vehicles, and transparent pricing.',
+  alternates: { canonical: `${BASE_URL}/packages` },
+  openGraph: {
+    title: 'Tour Packages — DevBhumi Travels',
+    description: 'Handcrafted multi-day itineraries across Uttarakhand. Char Dham Yatra, pilgrimage tours, and Himalayan road trips with expert drivers and well-maintained vehicles.',
+    url: `${BASE_URL}/packages`,
+  },
+}
 
 export default async function PackagesPage() {
   const settings = await getSettings()
@@ -22,10 +33,10 @@ export default async function PackagesPage() {
     <div>
       <PageHero
         badge="Curated Experiences"
-        title="Tour Packages"
-        subtitle="Handcrafted itineraries for the most beautiful routes in Uttarakhand — everything arranged, nothing to worry about."
+        title="Tour Packages Built for Every Journey"
+        subtitle="Leave the planning to us. Our handcrafted itineraries cover Uttarakhand's most iconic routes — from sacred pilgrimages to adventure-filled mountain escapes. Transparent pricing, experienced drivers, all arrangements included."
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Packages' }]}
-        image="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80"
+        image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80"
       />
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-14">

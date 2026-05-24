@@ -47,7 +47,7 @@ export default function PrivacyPage() {
       <PageHero
         badge="Legal"
         title="Privacy Policy"
-        subtitle="Last updated: January 2025"
+        subtitle="Last updated: May 2026"
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Privacy Policy' }]}
       />
 

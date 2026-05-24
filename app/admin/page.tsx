@@ -3,17 +3,19 @@ import Car from '@/lib/models/Car'
 import Driver from '@/lib/models/Driver'
 import Testimonial from '@/lib/models/Testimonial'
 import Destination from '@/lib/models/Destination'
+import Blog from '@/lib/models/Blog'
 import { getSettings } from '@/lib/getSettings'
 import Link from 'next/link'
 
 export default async function AdminDashboard() {
   await connectDB()
-  const [settings, cars, drivers, pending, destinations] = await Promise.all([
+  const [settings, cars, drivers, pending, destinations, blogs] = await Promise.all([
     getSettings(),
     Car.countDocuments(),
     Driver.countDocuments(),
     Testimonial.countDocuments({ isApproved: false }),
     Destination.countDocuments({ isActive: true }),
+    Blog.countDocuments(),
   ])
 
   const stats = [
@@ -21,6 +23,7 @@ export default async function AdminDashboard() {
     { label: 'Drivers',          value: drivers,       href: '/admin/cars',         icon: '👨‍✈️' },
     { label: 'Pending Reviews',  value: pending,       href: '/admin/testimonials', icon: '⭐', warn: pending > 0 },
     { label: 'Destinations',     value: destinations,  href: '/admin/destinations', icon: '📍' },
+    { label: 'Blog Posts',       value: blogs,         href: '/admin/blogs',        icon: '📝' },
   ]
 
   const toggles = [
@@ -79,6 +82,7 @@ export default async function AdminDashboard() {
         <div className="flex flex-wrap gap-3">
           {[
             { label: '+ Add Car',         href: '/admin/cars/new' },
+            { label: '+ Add Blog',        href: '/admin/blogs/new' },
             { label: '+ Add Destination', href: '/admin/destinations' },
             { label: 'Review Testimonials',href: '/admin/testimonials' },
             { label: 'Site Settings',     href: '/admin/settings' },

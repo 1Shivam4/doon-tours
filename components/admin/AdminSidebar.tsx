@@ -13,6 +13,7 @@ const NAV = [
   { label: 'Cars',          href: '/admin/cars',          icon: '🚗' },
   { label: 'Testimonials',  href: '/admin/testimonials',  icon: '⭐' },
   { label: 'Destinations',  href: '/admin/destinations',  icon: '📍' },
+  { label: 'Blogs',         href: '/admin/blogs',         icon: '📝' },
   { label: 'Packages',      href: '/admin/packages',      icon: '📦', toggle: 'packages'   },
   { label: 'Guesthouse',    href: '/admin/guesthouse',    icon: '🏡', toggle: 'guesthouse' },
   { label: 'Settings',      href: '/admin/settings',      icon: '⚙️' },

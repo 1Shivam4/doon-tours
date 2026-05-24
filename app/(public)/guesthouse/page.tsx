@@ -7,7 +7,18 @@ import { serialize } from '@/lib/serialize'
 import CtaBanner from '@/components/home/CtaBanner'
 import PageHero from '@/components/PageHero'
 
-export const metadata: Metadata = { title: 'Guesthouse' }
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'
+
+export const metadata: Metadata = {
+  title: 'Guesthouses & Farmhouses in Uttarakhand — Local Stays',
+  description: 'Book handpicked, hygienic guesthouses and organic farmhouses across Uttarakhand. Direct local pricing, warm hospitality, and perfect bases for pilgrimages and treks.',
+  alternates: { canonical: `${BASE_URL}/guesthouse` },
+  openGraph: {
+    title: 'Guesthouses & Organic Farmhouses — DevBhumi Travels',
+    description: 'Direct partner coordination for local homestays, guesthouses, and farmhouses in Uttarakhand. Authentic local food, safety, and comfort guaranteed.',
+    url: `${BASE_URL}/guesthouse`,
+  },
+}
 
 export default async function GuesthousePage() {
   const settings = await getSettings()
@@ -21,11 +32,11 @@ export default async function GuesthousePage() {
   return (
     <div>
       <PageHero
-        badge="Stay With Us"
-        title="Guesthouse"
-        subtitle="Comfortable, clean accommodation in the heart of Uttarakhand — the perfect base for your mountain travels."
-        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Guesthouse' }]}
-        image="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1400&q=80"
+        badge="Authentic Himalayan Stays"
+        title="Guesthouses & Organic Farmhouses"
+        subtitle="We partner directly with family-run mountain guesthouses and organic farmhouses across Uttarakhand. Experience genuine local hospitality, clean rooms, and traditional home-cooked food at direct pricing."
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Guesthouses & Farms' }]}
+        image="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=80"
       />
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-14">
