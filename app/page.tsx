@@ -1,66 +1,42 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { connectDB } from '@/lib/db'
+import Car from '@/lib/models/Car'
+import Destination from '@/lib/models/Destination'
+import Testimonial from '@/lib/models/Testimonial'
+import { getSettings } from '@/lib/getSettings'
+import { serialize } from '@/lib/serialize'
 
-export default function Home() {
+import HeroSection from '@/components/home/HeroSection'
+import TrustBar from '@/components/home/TrustBar'
+import DestinationsSection from '@/components/home/DestinationsSection'
+import FleetPreview from '@/components/home/FleetPreview'
+import HowItWorks from '@/components/home/HowItWorks'
+import TestimonialsSection from '@/components/home/TestimonialsSection'
+import CtaBanner from '@/components/home/CtaBanner'
+
+export default async function HomePage() {
+  await connectDB()
+
+  const [settings, rawCars, rawDestinations, rawTestimonials] = await Promise.all([
+    getSettings(),
+    Car.find({ isAvailable: true }).populate('driver').limit(3).sort({ createdAt: 1 }).lean(),
+    Destination.find({ isActive: true }).sort({ order: 1 }).lean(),
+    Testimonial.find({ isApproved: true }).sort({ order: 1 }).limit(3).lean(),
+  ])
+
+  const cars         = serialize(rawCars)
+  const destinations = serialize(rawDestinations)
+  const testimonials = serialize(rawTestimonials)
+  const waNumber     = settings.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    <>
+      <HeroSection waNumber={waNumber} />
+      <TrustBar />
+      <DestinationsSection destinations={destinations} />
+      <FleetPreview cars={cars} waNumber={waNumber} />
+      <HowItWorks />
+      <TestimonialsSection testimonials={testimonials} />
+      <CtaBanner waNumber={waNumber} />
+    </>
+  )
 }
