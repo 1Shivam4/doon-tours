@@ -11,6 +11,9 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Our Fleet',
   description: 'Hand-picked vehicles for mountain terrain — with drivers who know every route in Uttarakhand.',
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'}/cars`,
+  },
 }
 
 type SearchParams = Promise<{ type?: string; sort?: string }>

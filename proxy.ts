@@ -12,7 +12,7 @@ function isAuthenticated(req: NextRequest): boolean {
   return req.cookies.get(COOKIE_NAME)?.value === makeToken(ADMIN_PASSWORD)
 }
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl
 
   // ── Admin routes ──────────────────────────────────────────

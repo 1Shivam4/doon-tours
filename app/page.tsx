@@ -4,6 +4,7 @@ import Destination from '@/lib/models/Destination'
 import Testimonial from '@/lib/models/Testimonial'
 import { getSettings } from '@/lib/getSettings'
 import { serialize } from '@/lib/serialize'
+import JsonLd from '@/components/JsonLd'
 
 import HeroSection from '@/components/home/HeroSection'
 import TrustBar from '@/components/home/TrustBar'
@@ -12,6 +13,8 @@ import FleetPreview from '@/components/home/FleetPreview'
 import HowItWorks from '@/components/home/HowItWorks'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
 import CtaBanner from '@/components/home/CtaBanner'
+
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'
 
 export default async function HomePage() {
   await connectDB()
@@ -28,8 +31,38 @@ export default async function HomePage() {
   const testimonials = serialize(rawTestimonials)
   const waNumber     = settings.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
 
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': BASE_URL,
+    name: settings.businessName || 'DevBhumi Travels',
+    description: 'Comfortable cars, experienced local drivers, and deep knowledge of every road in Uttarakhand — from Rishikesh to Kedarnath and beyond.',
+    url: BASE_URL,
+    telephone: settings.phone || undefined,
+    email: settings.email || undefined,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Dehradun',
+      addressRegion: 'Uttarakhand',
+      addressCountry: 'IN',
+    },
+    openingHours: 'Mo-Su 08:00-21:00',
+    priceRange: '₹₹',
+    areaServed: { '@type': 'State', name: 'Uttarakhand' },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Uttarakhand Car Rental Services',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SUV Rental with Driver' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Char Dham Yatra Cab' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tempo Traveller for Groups' } },
+      ],
+    },
+  }
+
   return (
     <>
+      <JsonLd data={localBusinessSchema} />
       <HeroSection waNumber={waNumber} />
       <TrustBar />
       <DestinationsSection destinations={destinations} />

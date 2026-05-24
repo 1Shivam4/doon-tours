@@ -7,17 +7,35 @@ import Car from '@/lib/models/Car'
 import { getSettings } from '@/lib/getSettings'
 import { serialize } from '@/lib/serialize'
 import InquirySidebar from './InquirySidebar'
+import JsonLd from '@/components/JsonLd'
+
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://devbhumitravels.com'
 
 type Params = Promise<{ slug: string }>
+
+type CarLean = { name: string; seats: number; fuel: string; pricePerDay: number; type: string; slug: string }
+
+export async function generateStaticParams() {
+  await connectDB()
+  const cars = await Car.find({ isAvailable: true }).select('slug').lean<{ slug: string }[]>()
+  return cars.map(car => ({ slug: car.slug }))
+}
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params
   await connectDB()
-  const car = await Car.findOne({ slug }).lean<{ name: string }>()
+  const car = await Car.findOne({ slug }).lean<CarLean>()
   if (!car) return { title: 'Car Not Found' }
+  const description = `Hire the ${car.name} (${car.seats}-seater, ${car.fuel}) for ₹${car.pricePerDay.toLocaleString('en-IN')}/day in Uttarakhand. Experienced driver included. Char Dham, Kedarnath & Rishikesh routes.`
   return {
     title: car.name,
-    description: `Book the ${car.name} for your Uttarakhand trip. Experienced local driver included.`,
+    description,
+    alternates: { canonical: `${BASE_URL}/cars/${car.slug}` },
+    openGraph: {
+      title: `${car.name} — DevBhumi Travels`,
+      description,
+      url: `${BASE_URL}/cars/${car.slug}`,
+    },
   }
 }
 
@@ -40,8 +58,31 @@ export default async function CarDetailPage({ params }: { params: Params }) {
   const waNumber = settings.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
   const badgeClass = TYPE_BADGE[car.type] ?? 'bg-stone'
 
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `${car.name} — Car Rental Uttarakhand`,
+    serviceType: 'Car Rental with Driver',
+    description: `Hire the ${car.name} (${car.seats}-seater, ${car.fuel}) for ₹${car.pricePerDay.toLocaleString('en-IN')}/day in Uttarakhand. Experienced local driver included.`,
+    url: `${BASE_URL}/cars/${car.slug}`,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'DevBhumi Travels',
+      url: BASE_URL,
+    },
+    areaServed: { '@type': 'State', name: 'Uttarakhand', containedInPlace: { '@type': 'Country', name: 'India' } },
+    offers: {
+      '@type': 'Offer',
+      price: car.pricePerDay,
+      priceCurrency: 'INR',
+      availability: 'https://schema.org/InStock',
+      validFrom: new Date().toISOString().split('T')[0],
+    },
+  }
+
   return (
     <div style={{ paddingTop: 'var(--nav-height)' }}>
+      <JsonLd data={serviceSchema} />
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-10">
 
         {/* Breadcrumb */}

@@ -40,7 +40,7 @@ const milestones = [
 export default async function AboutPage() {
   const settings = await getSettings()
   const waNumber = settings.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
-  const waHref = waNumber ? `https://wa.me/${waNumber}?text=${encodeURIComponent('Hi! I'd like to know more about DevBhumi Travels.')}` : '#'
+  const waHref = waNumber ? `https://wa.me/${waNumber}?text=${encodeURIComponent('Hi! I would like to know more about DevBhumi Travels.')}` : '#'
 
   return (
     <div style={{ paddingTop: 'var(--nav-height)' }}>
